@@ -1,5 +1,8 @@
 package com.study.spring.didemo.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
 import com.study.spring.didemo.service.GreetingService;
 
 /**
@@ -7,15 +10,17 @@ import com.study.spring.didemo.service.GreetingService;
  * @author Navdeep
  *
  */
+@Controller
 public class SetterInjectedController
 {
 	private GreetingService greetingService;
 	
-	String sayHello()
+	public String sayHello()
 	{
 		return greetingService.sayGreeting();
 	}
 
+	@Autowired
 	public void setGreetingService(GreetingService greetService)
 	{
 		this.greetingService = greetService;
