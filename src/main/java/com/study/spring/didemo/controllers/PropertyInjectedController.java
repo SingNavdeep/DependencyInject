@@ -3,7 +3,7 @@ package com.study.spring.didemo.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import com.study.spring.didemo.service.GreetingServiceImpl;
+import com.study.spring.didemo.service.GreetingService;
 
 /**
  * demos DI with property injection
@@ -14,11 +14,14 @@ import com.study.spring.didemo.service.GreetingServiceImpl;
 public class PropertyInjectedController
 {
 	@Autowired
-	public GreetingServiceImpl greetingService;
+	//@Qualifier("greetingServiceImpl")
+	//NOTE: shortcut for not using @Qualifier. 
+	//If name of property matched the bean name, no need to use qualifier
+	public GreetingService greetingServiceImpl;
 	
 	public String sayHello()
 	{
-		return greetingService.sayGreeting();
+		return greetingServiceImpl.sayGreeting();
 	}
 
 	/*public GreetingServiceImpl getGreetingService()

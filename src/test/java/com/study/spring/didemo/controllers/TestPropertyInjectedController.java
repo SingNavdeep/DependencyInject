@@ -15,7 +15,7 @@ public class TestPropertyInjectedController
 	public void setUp() throws Exception
 	{
 		pInjcontroller = new PropertyInjectedController();
-		pInjcontroller.greetingService = new GreetingServiceImpl();
+		pInjcontroller.greetingServiceImpl = new GreetingServiceImpl();
 	}
 
 	@Test
