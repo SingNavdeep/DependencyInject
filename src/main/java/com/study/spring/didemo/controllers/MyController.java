@@ -2,6 +2,8 @@ package com.study.spring.didemo.controllers;
 
 import org.springframework.stereotype.Controller;
 
+import com.study.spring.didemo.service.GreetingService;
+
 /**
  * basic controller to demo spring DI
  * @author Navdeep
@@ -10,8 +12,14 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class MyController
 {
+	private GreetingService greetService;
+	
+	public MyController(GreetingService greetServc)
+	{
+		this.greetService = greetServc;
+	}
 	public void printHello()
 	{
-		System.out.println("Hello!!!");
+		System.out.println(greetService.sayGreeting());
 	}
 }

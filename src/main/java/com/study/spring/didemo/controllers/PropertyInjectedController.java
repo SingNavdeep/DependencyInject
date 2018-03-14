@@ -1,6 +1,7 @@
 package com.study.spring.didemo.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 import com.study.spring.didemo.service.GreetingService;
@@ -13,10 +14,12 @@ import com.study.spring.didemo.service.GreetingService;
 @Controller
 public class PropertyInjectedController
 {
-	@Autowired
-	//@Qualifier("greetingServiceImpl")
 	//NOTE: shortcut for not using @Qualifier. 
-	//If name of property matched the bean name, no need to use qualifier
+		//If name of property matched the bean name, no need to use qualifier
+		//This does not work if a primary bean is defined, so need a qualifier
+		//SO - Qualifier takes precedence over Primary and Primary over matched bean name property
+	@Autowired
+	@Qualifier("greetingServiceImpl")
 	public GreetingService greetingServiceImpl;
 	
 	public String sayHello()
